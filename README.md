@@ -70,3 +70,12 @@ Tests exercise real HTTP requests and SQLite writes: valid forms, invalid email/
 This source is a **local implementation, not a deployed organization site**. Deploy on a Node.js host with HTTPS and a persistent disk, set `GRAM_DB_PATH` to that disk, and back up the database. An ephemeral/serverless filesystem will lose submissions. The direct Node/SQLite server does not run on the Sites Cloudflare Workers runtime without a storage/server adaptation.
 
 Before collecting real submissions, establish organizer access, privacy/retention policy, backups, and a review process. The local IP limiter is single-process and does not trust forwarded headers; add an appropriately configured edge limiter behind shared proxies or multiple instances. Email delivery, automated retention/deletion, and a browser admin dashboard remain unfinished. Real-browser visual and interaction QA has not been performed in this environment.
+
+
+## Hosted private preview
+
+[Open Gram Takes Two](https://gram-takes-two-mawubey.zany-llama-7991.chatgpt.site). Access is owner-private; this is not a publicly launched organization website.
+
+The `hosting/` directory contains the deployed Vinext/Cloudflare Workers version. It preserves the existing design and saves forms in persistent D1 storage. Its four adapter tests pass, and the production build and deployment succeeded. The original Node/SQLite implementation remains in the repository root.
+
+Email delivery, organizer export credentials, verified event details, and the organization's submission-retention policy still require setup. Private previews should not be linked as publicly accessible internship demos.
